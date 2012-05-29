@@ -29,13 +29,14 @@
 		<property name="fw-mkall-internal-error" value="false"/>
 	</target>
 	<!-- ,FwModelBrowser,FwObjectBrowser -->
+	<!-- SC removed mkgrc from list below, 29 May 2012 -->
 	<target name="mkall-internal-core" description="Make all of FieldWorks - don't call directly"
 		depends="independentTargets,
 		InstallLanguage,
 		mkGenLib,mkfwk,mkdba,mkcel,mklg,mkvw,register-So,
 		cmNewLangProj,FwCoreDlgs,Widgets,RunAddConverter,
 		mkAfLib,mkWidgLib,mkmig,mkDbSvcs,mkComFWDlgs,
-		mknb,mkCle,mkgrc,mkgre,mkwp,XceedZipDll,EncConvertersDlls,mktsth,mktstw,mkall-tst,
+		mknb,mkCle,mkgre,mkwp,XceedZipDll,EncConvertersDlls,mktsth,mktstw,mkall-tst,
 		allTe,allATests,WordWorks,CopyDlls,CacheLight">
 		<!-- [NewUndo] Restore the TestLangProj database to initial build state. -->
 		<call target="restoreTLP" if="${doTest}" cascade="false"/>
@@ -515,6 +516,8 @@
 		</if>
 	</target>
 	<!-- -->
+	<!-- === The FW version of the Graphite compiler is very out of date. ===
+	======== SC removed 29 May 2012                                       ===
 	<target name="mkgrc" description="Graphite compiler" depends="mkGenLib,mkfwk">
 		<call target="mkgrc-nodep" cascade="false"/>
 	</target>
@@ -522,6 +525,7 @@
 		<property name="batch-file" value="mkgrc"/>
 		<call target="call-batch"/>
 	</target>
+	====================================================================== -->
 	<!-- -->
 	<target name="mkgre" description="Graphite engine" depends="mkGenLib,mkfwk,mkvw">
 		<call target="mkgre-nodep" cascade="false"/>
